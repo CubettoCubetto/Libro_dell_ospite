@@ -45,7 +45,7 @@ function handleLogin(event) {
         a.click();
         // Remove the link from the document body
         document.body.removeChild(a);
-        $('#response').html('<div class="alert alert-success">Ciao ' + data.username + ', + puoi trovare il file scaricato nella cartella download o in alto a destra!</div>');
+        $('#response').html('<div class="alert alert-success">Ciao ' + data.username + ', puoi trovare il file scaricato nella cartella download o in alto a destra!</div>');
       });
     } else {
       console.error('Unexpected content type:', contentType);
