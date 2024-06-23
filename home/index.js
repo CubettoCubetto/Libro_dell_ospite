@@ -1,5 +1,5 @@
 var global_choice = false
-const url = "http://127.0.0.1:8013"
+const url = "DiegoPirovano.pythonanywhere.com"
 
 //caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);

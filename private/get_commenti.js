@@ -1,3 +1,5 @@
+const url = "DiegoPirovano.pythonanywhere.com"
+
 function handleLogin(event) {
     
   const username = document.getElementById('username').value;
@@ -10,7 +12,7 @@ function handleLogin(event) {
   };
 
   // Send a POST request using Fetch API
-  fetch('http://127.0.0.1:8013/get_commenti', {
+  fetch(url + '/get_commenti', {
     method: 'POST', // Specify the method
     headers: {
       'Content-Type': 'application/json', // Set the content type to JSON
