@@ -18,6 +18,6 @@ h1, h2, h3, h4{
     position: relative;
 }
 .logo-sopra img{
-    width: min(40%, 500px);
+    width: min(40%, 300px);
     padding: 3%;
 }

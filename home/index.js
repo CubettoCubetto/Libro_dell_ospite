@@ -1,14 +1,41 @@
 var global_choice = false
+const url = "http://127.0.0.1:8013"
+
+//caricare il username della pagina
+const urlParams = new URLSearchParams(window.location.search);
+const username = urlParams.get('username')
+console.log(username);
+
+// cambiare il nome del titolo
+document.getElementById("TitoloNome").innerHTML=username
+
+
+// aggiungere il logo alla pagina
+// Create a new image element 
+var img = document.createElement('img'); 
+ 
+// Set the source (src) attribute of the image 
+img.src = url+"/get_image/"+username; 
+
+// Set any additional attributes like alt text, width, height, etc. 
+img.alt = 'Logo';  
+
+// Get a reference to the container where you want to insert the image 
+var container = document.getElementById('imageLogoContainer'); 
+
+// Append the image element to the container 
+container.appendChild(img); 
+
+
 
 $(document).ready(function() {
     $('#messageForm').on('submit', function(event) {
         event.preventDefault();
 
         var message = $('#message').val();
-        if (message.includes("Michele") || message.includes("Davide")) {
-            $('#response').html('<div class="alert alert-danger">Grazie ma non ci interessano messaggi relativi a Michele e Davide!</div>');
-            return; // Stop further execution if message exceeds 100 characters
-        }
+
+        
+
         var formData = {
             'name': $('#name').val(),
             'message': message,
@@ -22,7 +49,7 @@ $(document).ready(function() {
         }
         $.ajax({
             type: 'POST',
-            url: 'https://diegopirovano.pythonanywhere.com/receive',
+            url: url+'/receive/' + username,
             contentType: 'application/json',
             data: JSON.stringify(formData),
             success: function(response) {
