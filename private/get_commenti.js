@@ -1,4 +1,4 @@
-const url = "DiegoPirovano.pythonanywhere.com"
+const urlServer = "DiegoPirovano.pythonanywhere.com"
 
 function handleLogin(event) {
     
@@ -12,7 +12,7 @@ function handleLogin(event) {
   };
 
   // Send a POST request using Fetch API
-  fetch(url + '/get_commenti', {
+  fetch(urlServer + '/get_commenti', {
     method: 'POST', // Specify the method
     headers: {
       'Content-Type': 'application/json', // Set the content type to JSON

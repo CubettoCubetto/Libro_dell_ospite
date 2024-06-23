@@ -1,5 +1,5 @@
 var global_choice = false
-const url = "DiegoPirovano.pythonanywhere.com"
+const urlServer = "DiegoPirovano.pythonanywhere.com"
 
 //caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
@@ -15,7 +15,7 @@ document.getElementById("TitoloNome").innerHTML=username
 var img = document.createElement('img'); 
  
 // Set the source (src) attribute of the image 
-img.src = url+"/get_image/"+username; 
+img.src = urlServer+"/get_image/"+username; 
 
 // Set any additional attributes like alt text, width, height, etc. 
 img.alt = 'Logo';  
