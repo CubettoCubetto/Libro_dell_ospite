@@ -1,3 +1,3 @@
 layout: page
 title: "Leave a comment!"
-permalink: /
+permalink: /commento
