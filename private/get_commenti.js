@@ -1,4 +1,4 @@
-const urlServer = "DiegoPirovano.pythonanywhere.com"
+const urlServer = "https://diegopirovano.pythonanywhere.com"
 
 function handleLogin(event) {
     
