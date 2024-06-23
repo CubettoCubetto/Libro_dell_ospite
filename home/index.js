@@ -49,7 +49,7 @@ $(document).ready(function() {
         }
         $.ajax({
             type: 'POST',
-            url: url+'/receive/' + username,
+            url: urlServer+'/receive/' + username,
             contentType: 'application/json',
             data: JSON.stringify(formData),
             success: function(response) {
