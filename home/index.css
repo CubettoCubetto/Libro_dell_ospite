@@ -21,3 +21,33 @@ h1, h2, h3, h4{
     width: min(40%, 300px);
     padding: 3%;
 }
+
+
+/* stars rating */
+.rating {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row-reverse; /* this is the magic */
+    justify-content: flex-end;
+}
+  
+.rating input {
+    display: none;
+}
+  
+.rating label {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.rating label:hover{
+    margin-top: -10px;
+    margin-bottom: -10px;
+    margin-right: -6.75px;
+    margin-left: -6.75px;
+    font-size: 60px;
+}
+
+  
+
+  

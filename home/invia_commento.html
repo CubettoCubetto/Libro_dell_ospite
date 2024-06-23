@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Message</title>
     <link rel="stylesheet" href="index.css">
@@ -18,13 +18,32 @@
 
         <form id="messageForm" class="mt-3">
             
+            <!-- messaggio -->
             <div class="form-group">
                 <label for="message">Il tuo commento</label>
                 <textarea class="form-control" id="message" name="message" rows="3" required placeholder="Inserisci il tuo commento qui"></textarea>
             </div>
 
-
+            <!-- rating-->
+             <div class="stelleContainer">
+                <div class="rating">
+                    <!-- Notice that the stars are in reverse order -->
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">⭐</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">⭐</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">⭐</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">⭐</label>
+                </div>
+             </div>
+            
+            <!-- nome -->
             <div class="form-group">
+                
                 <label>Vuoi inserire il tuo nome?</label><br>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="choice" id="choiceYes" value="yes" required>

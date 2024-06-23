@@ -86,5 +86,9 @@ function choiceChanged(choice) {
     }
 }
 
+function loadStars(){
+    
+}
+
 // Initial state: hide the name field until a choice is made
 $('#nameGroup').hide();
