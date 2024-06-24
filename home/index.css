@@ -43,9 +43,6 @@ h1{
     cursor: pointer;
 }
 
-.rating label:hover{
-    font-size: 35px;
-}
 
 .stellecontainer{
     display: inline;
