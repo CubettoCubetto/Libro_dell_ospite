@@ -4,7 +4,6 @@ const urlServer = "https://diegopirovano.pythonanywhere.com"
 //caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username')
-console.log(username);
 
 // cambiare il nome del titolo
 document.getElementById("TitoloNome").innerHTML=username
@@ -28,6 +27,7 @@ container.appendChild(img);
 
 
 
+
 $(document).ready(function() {
     $('#messageForm').on('submit', function(event) {
         event.preventDefault();
@@ -39,8 +39,9 @@ $(document).ready(function() {
         var formData = {
             'name': $('#name').val(),
             'message': message,
+            'ratings': valuesSelected
         };
-
+        console.log(formData)
         if(!global_choice ){
             formData = {
                 'name': "Anonimo",
@@ -84,10 +85,6 @@ function choiceChanged(choice) {
         global_choice = false
         document.getElementById("name-input").classList.add("hide")
     }
-}
-
-function loadStars(){
-    
 }
 
 // Initial state: hide the name field until a choice is made
