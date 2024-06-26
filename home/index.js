@@ -83,17 +83,27 @@ $(document).ready(function() {
         };
         console.log(formData)
 
-        $.ajax({
-            type: 'POST',
-            url: urlServer+'/receive/' + username,
-            contentType: 'application/json',
-            data: JSON.stringify(formData),
-            success: function(response) {
-                $('#response').html('<div class="alert alert-success">Messagio inviato, grazie!</div>');
+        fetch(urlServer + '/receive/' + username, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
-            error: function() {
-                $('#response').html('<div class="alert alert-danger">C\'e stato un errore nell\'invio del messaggio, riprovare più tardi grazie!</div>');
+            body: JSON.stringify(formData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
+            return response.json(); // Parse the JSON from the response
+        })
+        .then(data => {
+            // Success case
+            $('#response').html('<div class="alert alert-success">Messaggio inviato, grazie!</div>');
+        })
+        .catch(error => {
+            // Error case
+            $('#response').html('<div class="alert alert-danger">C\'è stato un errore nell\'invio del messaggio, riprovare più tardi, grazie!</div>');
+            console.error('Fetch error:', error);
         });
     });
 
