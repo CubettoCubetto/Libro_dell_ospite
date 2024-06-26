@@ -1,6 +1,6 @@
 var global_choice = false
 let urlServer = "https://diegopirovano.pythonanywhere.com"
-urlServer = "http://127.0.0.1:8013"
+//urlServer = "http://127.0.0.1:8013"
 
 //caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
