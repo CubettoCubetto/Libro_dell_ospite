@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const element = document.getElementById(elementId);
                 if (element) {
                     const child = element.querySelector('.titolo');
-                    if (value === 'disabled') {
+                    if (value === 'NO') {
                         element.style.display = 'none';
                     } else if (child) {
                         child.innerHTML = value;
