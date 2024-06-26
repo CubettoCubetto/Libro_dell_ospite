@@ -1,7 +1,6 @@
 var global_choice = false
 let urlServer = "https://diegopirovano.pythonanywhere.com"
 //urlServer = "http://127.0.0.1:8013"
-
 //caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username')
@@ -12,7 +11,7 @@ document.getElementById("TitoloNome").innerHTML=username
 // nascondere le domande non volute dai settings
 document.addEventListener('DOMContentLoaded', function() {
 
-    fetch(urlServer+="/get_params/" + username)
+    fetch(urlServer + "/get_params/" + username)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const element = document.getElementById(elementId);
                 if (element) {
                     const child = element.querySelector('.titolo');
-                    if (value === 'NO') {
+                    if (value === 'disabled') {
                         element.style.display = 'none';
                     } else if (child) {
                         child.innerHTML = value;
