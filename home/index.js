@@ -1,12 +1,51 @@
 var global_choice = false
-const urlServer = "https://diegopirovano.pythonanywhere.com"
-
+let urlServer = "https://diegopirovano.pythonanywhere.com"
+urlServer = "http://127.0.0.1:8013"
 //caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username')
 
 // cambiare il nome del titolo
 document.getElementById("TitoloNome").innerHTML=username
+
+// nascondere le domande non volute dai settings
+document.addEventListener('DOMContentLoaded', function() {
+
+    fetch(urlServer+="/get_params/" + username)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+            // Iterate through each key-value pair in the data
+            data.forEach((pair, index) => {
+                const [key, value] = pair;
+                const elementId = `form${index + 1}`;
+                const element = document.getElementById(elementId);
+                if (element) {
+                    const child = element.querySelector('.titolo');
+                    if (value === 'NO') {
+                        element.style.display = 'none';
+                    } else if (child) {
+                        child.innerHTML = value;
+                    } else {
+                        console.error(`Child with class 'titolo' inside element with id ${elementId} not found`);
+                    }
+                } else {
+                    console.error(`Element with id ${elementId} not found`);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Fetch error: ', error);
+        });
+});
+
+
+
 
 
 // aggiungere il logo alla pagina
@@ -37,17 +76,12 @@ $(document).ready(function() {
         
 
         var formData = {
-            'name': $('#name').val(),
+            'name': global_choice ? $('#name').val(): "anonimo",
             'message': message,
             'ratings': valuesSelected
         };
         console.log(formData)
-        if(!global_choice ){
-            formData = {
-                'name': "Anonimo",
-                'message': message,
-            };
-        }
+
         $.ajax({
             type: 'POST',
             url: urlServer+'/receive/' + username,

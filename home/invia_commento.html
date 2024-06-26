@@ -19,15 +19,15 @@
         <form id="messageForm" class="mt-3">
             
             <!-- messaggio -->
-            <div class="form-group">
-                <label for="message">Il tuo commento</label>
+            <div class="form-group" id="form1">
+                <label for="message" class="titolo">Il tuo commento</label>
                 <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Inserisci il tuo commento qui"></textarea>
             </div>
 
             <!-- rating-->
             <div class="stelleContainer">
                 
-                <div class="rating rating1">     
+                <div class="rating rating1" id="form2">     
                     <!-- Row 1 stars -->
                     
                     <input type="radio" id="star5_row1" name="1" value="5">
@@ -40,12 +40,12 @@
                     <label for="star2_row1">★</label>
                     <input type="radio" id="star1_row1" name="1" value="1">
                     <label for="star1_row1">⭐</label>
-                    <p>Maestri</p>
+                    <p class="titolo">Maestri</p>
                     
                 </div>
                 
                 
-                <div class="rating rating2">
+                <div class="rating rating2" id="form3">
                     <!-- Row 2 stars -->
                     
                     <input type="radio" id="star5_row2" name="2" value="5">
@@ -58,11 +58,11 @@
                     <label for="star2_row2">★</label>
                     <input type="radio" id="star1_row2" name="2" value="1">
                     <label for="star1_row2">⭐</label>
-                    <p>Sauna</p>
+                    <p class="titolo">Sauna</p>
                 </div>
                 
                 
-                <div class="rating rating3">
+                <div class="rating rating3" id="form4">
                     <!-- Row 3 stars -->
                     
                     <input type="radio" id="star5_row3" name="3" value="5">
@@ -75,11 +75,11 @@
                     <label for="star2_row3">★</label>
                     <input type="radio" id="star1_row3" name="3" value="1">
                     <label for="star1_row3">⭐</label>
-                    <p>Piscina</p>
+                    <p class="titolo">Piscina</p>
                 </div>
                 
                 
-                <div class="rating rating4">
+                <div class="rating rating4" id="form5">
                     <!-- Row 4 stars -->
                    
                     <input type="radio" id="star5_row4" name="4" value="5">
@@ -92,11 +92,11 @@
                     <label for="star2_row4">★</label>
                     <input type="radio" id="star1_row4" name="4" value="1">
                     <label for="star1_row4">⭐</label>
-                    <p>Row 4</p>
+                    <p class="titolo">Row 4</p>
                 </div>
                 
                 
-                <div class="rating rating5">
+                <div class="rating rating5" id="form6">
                     <!-- Row 5 stars -->
                     
                     <input type="radio" id="star5_row5" name="5" value="5">
@@ -109,25 +109,26 @@
                     <label for="star2_row5">★</label>
                     <input type="radio" id="star1_row5" name="5" value="1">
                     <label for="star1_row5">⭐</label>
-                    <p>Row 5</p>
+                    <p class="titolo">Row 5</p>
                 </div>
             </div>
             <!-- nome -->
-            <div class="form-group">
-                
-                <label>Vuoi inserire il tuo nome?</label><br>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="choice" id="choiceYes" value="yes" required>
-                    <label class="form-check-label" for="choiceYes">Yes</label>
+            <div class="inserireIlNome" id="form7">
+                <div class="form-group">
+                    <label>Vuoi inserire il tuo nome?</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="choice" id="choiceYes" value="yes" required>
+                        <label class="form-check-label" for="choiceYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="choice" id="choiceNo" value="no" required checked>
+                        <label class="form-check-label" for="choiceNo">No</label>
+                    </div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="choice" id="choiceNo" value="no" required checked>
-                    <label class="form-check-label" for="choiceNo">No</label>
+                <div class="form-group hide" id="name-input">
+                    <label for="name" class="titolo">Nome</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci qui il tuo nome">
                 </div>
-            </div>
-            <div class="form-group hide" id="name-input">
-                <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci qui il tuo nome">
             </div>
             <button type="submit" class="btn btn-primary">Invia</button>
         </form>
