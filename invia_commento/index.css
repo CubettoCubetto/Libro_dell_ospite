@@ -12,14 +12,11 @@ h1, h2, h3, h4{
     font-family: Raleway,HelveticaNeue-Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
     font-size: 100%;
     font-weight: 300;
-    padding-top: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
     background: none repeat scroll 0 0 #fff;
     letter-spacing: 0;
     position: relative;
-}
-h1{
-    margin: -10px;
-    margin-left: 0px;
 }
 .logo-sopra img{
     width: min(40%, 300px);
