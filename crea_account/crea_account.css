@@ -1,0 +1,31 @@
+
+.container-logo{
+    background-color: #0f2453;
+    width: 100%;
+}
+.logo{
+    margin: 10px;
+    width: min(200px, 30%);
+    border-radius: 30px;
+}
+.titolo-principale{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.immagine-nome-disabilitato{
+    border: 3px solid #0f2453;
+    border-radius: 50px;
+    margin-bottom: 40px;
+    width: min(100%, 600px);
+}
+.tips{
+    margin-top: 20px;
+}
+.tutorial{
+    width: min(100%, 800px);
+    margin: auto;
+}
+
+.bottone-submit{
+    margin-bottom: 40px;
+}
