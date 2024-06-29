@@ -1,0 +1,22 @@
+h1, h2, h3, h4{
+    color: #0f2453;
+    width: 100%;
+}
+
+.logo-sopra{
+    width: 100vw;
+    background-color: #0f2453;
+}
+.logo-sopra img{
+    width: min(40%, 300px);
+    padding: 3%;
+}
+
+.url-invia-commento{
+    font-size: 2rem;
+}
+
+.btn-scarica-qr{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
