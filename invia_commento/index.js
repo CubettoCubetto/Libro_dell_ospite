@@ -1,5 +1,5 @@
 let urlServer = "https://diegopirovano.pythonanywhere.com"
-//urlServer = "http://127.0.0.1:8013"
+urlServer = "http://127.0.0.1:8013"
 
 var global_choice = false
 
@@ -21,9 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            console.log(data)
+            
             // Iterate through each key-value pair in the data
             data.forEach((pair, index) => {
+                console.log(pair)
                 const [key, value] = pair;
                 const elementId = `form${index + 1}`;
                 const element = document.getElementById(elementId);
@@ -41,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         })
-        .catch(error => {
-            console.error('Fetch error: ', error);
-        });
+
 });
 
 
@@ -66,7 +65,12 @@ var container = document.getElementById('imageLogoContainer');
 // Append the image element to the container 
 container.appendChild(img); 
 
-
+function startLoading(){
+    document.getElementById('loadingDiv').style.display = 'flex'; // Show the loading div
+}
+function stopLoading(){
+    document.getElementById('loadingDiv').style.display = 'none'; // don't show the loading div
+}
 
 
 $(document).ready(function() {
@@ -83,16 +87,18 @@ $(document).ready(function() {
             'ratings': valuesSelected
         };
         console.log(formData)
-
+        startLoading()
         $.ajax({
             type: 'POST',
             url: urlServer+'/receive/' + username,
             contentType: 'application/json',
             data: JSON.stringify(formData),
             success: function(response) {
+                stopLoading()
                 $('#response').html('<div class="alert alert-success">Messagio inviato, grazie!</div>');
             },
             error: function() {
+                stopLoading()
                 $('#response').html('<div class="alert alert-danger">C\'e stato un errore nell\'invio del messaggio, riprovare più tardi grazie!</div>');
             }
         });

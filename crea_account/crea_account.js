@@ -1,5 +1,13 @@
 let urlServer = "https://diegopirovano.pythonanywhere.com"
-//urlServer = "http://127.0.0.1:8013"
+urlServer = "http://127.0.0.1:8013"
+
+function startLoading(){
+    document.getElementById('loadingDiv').style.display = 'flex'; // Show the loading div
+}
+function stopLoading(){
+    document.getElementById('loadingDiv').style.display = 'none'; // don't show the loading div
+}
+
 
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -26,7 +34,7 @@ document.getElementById('createAccountForm').addEventListener('submit', function
     for (const value of formData.values()) {
         console.log(value);
     }
-
+    startLoading()
     fetch(urlServer + "/create_account", {
         method: 'POST',
         body: formData
@@ -34,11 +42,17 @@ document.getElementById('createAccountForm').addEventListener('submit', function
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-
+        
+        if(data["status"] != "success"){
+            stopLoading()
+            alert("attenzione-->"+data["message"])
+            return
+        }
         // Open the account confirmation page
         window.open("https://cubettocubetto.github.io/Libro_dell_ospite/account_creato/account_creato.html?username=" + data['username'], "_self");
     })
     .catch(error => {
+        stopLoading()
         console.error('Error:', error);
     });
 });
