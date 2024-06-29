@@ -35,6 +35,7 @@ document.getElementById('createAccountForm').addEventListener('submit', function
         console.log('Success:', data);
 
         // Open the account confirmation page
+        confirm("Press a button!");
         window.open("https://cubettocubetto.github.io/Libro_dell_ospite/account_creato/account_creato.html?username=" + data['username'], "_self");
     })
     .catch(error => {
