@@ -1,0 +1,8 @@
+.logo-sopra{
+    width: 100vw;
+    background-color: #0f2453;
+}
+.logo-sopra img{
+    width: min(40%, 500px);
+    padding: 3%;
+}

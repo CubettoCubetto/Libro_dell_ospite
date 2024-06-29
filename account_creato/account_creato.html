@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account aggiornato!</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="account_creato.css">
+
+    <!-- QR code library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="logo-sopra" id="imageLogoContainer"></div>
+
+    <div class="container">    
+        <h1 class="titolo" id="TitoloNome"></h1>
+        <h4 class="titolo">Libro dell'ospite</h4>
+        <h1 id="titolo"></h1>
+        <div class="url-invia-commento" id="url-invia-commento"></div>
+
+        <!-- Container for the QR code -->
+         <h1>O utilizzare questo QR code!</h1>
+        <div id="qrcode"></div>
+        <button type="button" id="downloadQR" class="btn btn-lg btn-success btn-scarica-qr">Scarica il QR!</button>
+        <h3>Info</h3>
+        <ol>
+            <li><p>Se avrai modifiche da fare al tuo account, puoi sempre farle 
+                <a target="_blank" href="https://cubettocubetto.github.io/Libro_dell_ospite/crea_account/crea_account.html">a questo link</a>
+                reinserendo il tuo username, e utilizzando la stessa password che ti abbiamo fornito noi
+            </p></li>
+            <li><p>Per ricevere e leggere tutti i commenti che ti sono arrivati,
+                <a target="_blank" href="https://cubettocubetto.github.io/Libro_dell_ospite/scarica_commento/get_commenti.html">vai a questo link</a>
+                Inserendo il tuo username e la password scelta da te
+            </p></li>
+        </ol>
+        
+        
+    </div>
+    
+    
+    <script src="account_creato.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+    
+</html>
