@@ -1,18 +1,14 @@
-let urlServer = "https://diegopirovano.pythonanywhere.com"
-urlServer = "http://127.0.0.1:8013"
+let urlServer = "http://127.0.0.1:8013";
 
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    //check if password is right
-
-    if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) 
-    {
-        alert("attenzione: le due password non corrispondono")
-        return
+    // Check if passwords match
+    if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) {
+        alert("attenzione: le due password non corrispondono");
+        return;
     }
 
-   
     const formData = new FormData();
     formData.append('formFile', document.getElementById('formFile').files[0]);
     formData.append('text1', document.getElementById('text1').value);
@@ -28,7 +24,8 @@ document.getElementById('createAccountForm').addEventListener('submit', function
 
     for (const value of formData.values()) {
         console.log(value);
-      }
+    }
+
     fetch(urlServer + "/create_account", {
         method: 'POST',
         body: formData
@@ -37,9 +34,8 @@ document.getElementById('createAccountForm').addEventListener('submit', function
     .then(data => {
         console.log('Success:', data);
 
-        //aprire pagina di conferma account aggiornato
-        window.open("https://cubettocubetto.github.io/Libro_dell_ospite/account_creato?username="+data['username'],"_self")
-    })
+        // Open the account confirmation page
+        window.open("https://cubettocubetto.github.io/Libro_dell_ospite/account_creato?username=" + data['username'], "_self");
     })
     .catch(error => {
         console.error('Error:', error);
