@@ -22,10 +22,11 @@ img.alt = 'Logo';
 // Get a reference to the container where you want to insert the image 
 var container = document.getElementById('imageLogoContainer'); 
 
-// Append the image element to th
+// Append the image element to the container 
+container.appendChild(img); 
 
 // cambiare il nome del titolo
-document.getElementById("titolo").innerHTML="Ciao " + username + ", abbiamo aggiornato il tuo account!"
+document.getElementById("titolo").innerHTML="Ciao " + username + ", il tuo account è pronto!"
 document.getElementById("url-invia-commento").innerHTML= '<a target="_blank" href='+url_to_send_message+'> Puoi inviare un commento a questo link </a>'
 
 const qrcode = new QRCode(document.getElementById("qrcode"), {

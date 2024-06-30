@@ -1,6 +1,7 @@
 .logo-sopra{
     background-color: #0f2453;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     color: white;
     font-family: 'Brush Script MT', cursive;
