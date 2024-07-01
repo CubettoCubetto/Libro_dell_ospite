@@ -24,8 +24,6 @@ async function handleLogin(event) {
             throw new Error('Username not found');
         }
 
-        const result = await response.json();
-        responseDiv.innerHTML = `<div class="alert alert-success">Success: ${JSON.stringify(result)}</div>`;
         if(destination == "sendComments"){
             window.open("https://cubettocubetto.github.io/Libro_dell_ospite/invia_commento/invia_commento.html?username=" + username);
         }
