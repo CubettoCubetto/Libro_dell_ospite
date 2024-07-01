@@ -96,6 +96,7 @@ $(document).ready(function() {
             data: JSON.stringify(formData),
             success: function(response) {
                 stopLoading()
+                alert("Messagio inviato, grazie!")
                 $('#response').html('<div class="alert alert-success">Messagio inviato, grazie!</div>');
             },
             error: function() {
