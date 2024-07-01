@@ -21,14 +21,3 @@ ul {
     display: inline-block;
 }
 
-.logo-sopra{
-    background-color: #0f2453;
-}
-
-.logo-sopra img {
-    border-radius: 30px;
-    width: min(40%, 300px);
-    padding: 3%;
-    display: block;
-    margin: 0 auto;
-}
