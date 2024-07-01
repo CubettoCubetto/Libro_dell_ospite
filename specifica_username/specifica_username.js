@@ -25,10 +25,10 @@ async function handleLogin(event) {
         }
 
         if(destination == "sendComments"){
-            window.open("https://cubettocubetto.github.io/Libro_dell_ospite/invia_commento/invia_commento.html?username=" + username);
+            window.open("https://cubettocubetto.github.io/Libro_dell_ospite/invia_commento/invia_commento.html?username=" + encodeURIComponent(username));
         }
         else{
-            window.open("https://cubettocubetto.github.io/Libro_dell_ospite/account_creato/account_creato.html?username=" + username);
+            window.open("https://cubettocubetto.github.io/Libro_dell_ospite/account_creato/account_creato.html?username=" + encodeURIComponent(username));
         }
         
     } catch (error) {

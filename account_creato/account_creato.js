@@ -7,14 +7,14 @@ var global_choice = false
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username')
 
-url_to_send_message = "https://diegopirovano.pythonanywhere.com/sh/"+username
+url_to_send_message = "https://diegopirovano.pythonanywhere.com/sh/"+encodeURIComponent(username);
 
 // aggiungere il logo alla pagina
 // Create a new image element 
 var img = document.createElement('img'); 
  
 // Set the source (src) attribute of the image 
-img.src = urlServer+"/get_image/"+username; 
+img.src = urlServer+"/get_image/"+encodeURIComponent(username);; 
 
 // Set any additional attributes like alt text, width, height, etc. 
 img.alt = 'Logo';  
@@ -27,7 +27,7 @@ container.appendChild(img);
 
 // cambiare il nome del titolo
 document.getElementById("titolo").innerHTML="Ciao " + username + ", il tuo account è pronto!"
-document.getElementById("url-invia-commento").innerHTML= '<a target="_blank" href='+url_to_send_message+'> Puoi inviare un commento a questo link </a>'
+document.getElementById("url-invia-commento").innerHTML= '<a target="_blank" href='+ url_to_send_message+'> Puoi inviare un commento a questo link </a>'
 
 const qrcode = new QRCode(document.getElementById("qrcode"), {
     text: url_to_send_message,
