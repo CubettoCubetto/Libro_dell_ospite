@@ -20,7 +20,8 @@ document.getElementById('createAccountForm').addEventListener('submit', function
 
     const formData = new FormData();
     formData.append('formFile', document.getElementById('formFile').files[0]);
-    formData.append('text1', document.getElementById('text1').value);
+    formData.append('username', document.getElementById('text1').value);
+    formData.append('text2', document.getElementById('text2').value);
     formData.append('password', document.getElementById('password').value);
     formData.append('text3', document.getElementById('text3').value);
     formData.append('star1', document.getElementById('star1').value);
