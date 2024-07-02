@@ -1,5 +1,5 @@
 let urlServer = "https://diegopirovano.pythonanywhere.com"
-//urlServer = "http://127.0.0.1:8013"
+urlServer = "http://127.0.0.1:8013"
 
 function startLoading(){
     document.getElementById('loadingDiv').style.display = 'flex'; // Show the loading div
@@ -7,6 +7,7 @@ function startLoading(){
 function stopLoading(){
     document.getElementById('loadingDiv').style.display = 'none'; // don't show the loading div
 }
+
 
 
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {
@@ -17,6 +18,17 @@ document.getElementById('createAccountForm').addEventListener('submit', function
         alert("attenzione: le due password non corrispondono");
         return;
     }
+
+    //capire se ha acconsentito a pubblicare il messaggio
+    const radios = document.getElementsByName('inlineRadioOptions');
+    let selectedValue;
+    for (const radio of radios) {
+        if (radio.checked) {
+            selectedValue = radio.value;
+            break;
+        }
+    }
+    alert(`Selected value: ${selectedValue == "option1"}`);
 
     const formData = new FormData();
     formData.append('formFile', document.getElementById('formFile').files[0]);
@@ -30,11 +42,13 @@ document.getElementById('createAccountForm').addEventListener('submit', function
     formData.append('star4', document.getElementById('star4').value);
     formData.append('star5', document.getElementById('star5').value);
     formData.append('nome', document.getElementById('nome').value.trim());
+    formData.append('pubblicaCommenti', selectedValue == "option1");
     formData.append('providedPassword', document.getElementById('providedPassword').value.trim());
-
+    
     for (const value of formData.values()) {
         console.log(value);
     }
+
     startLoading()
     fetch(urlServer + "/create_account", {
         method: 'POST',

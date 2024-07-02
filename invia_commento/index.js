@@ -1,5 +1,5 @@
 let urlServer = "https://diegopirovano.pythonanywhere.com"
-//urlServer = "http://127.0.0.1:8013"
+urlServer = "http://127.0.0.1:8013"
 
 var global_choice = false
 
@@ -77,12 +77,22 @@ $(document).ready(function() {
 
         var message = $('#message').val();
 
-        
+        //capire se ha acconsentito a pubblicare il messaggio
+        const radios = document.getElementsByName('inlineRadioOptions');
+        let selectedValue;
+        for (const radio of radios) {
+            if (radio.checked) {
+                selectedValue = radio.value;
+                break;
+            }
+        }
+        alert(`Selected value: ${selectedValue == "option1"}`);
 
         var formData = {
             'name': global_choice ? $('#name').val(): "anonimo",
             'message': message,
-            'ratings': valuesSelected
+            'ratings': valuesSelected,
+            'public' : selectedValue == "option1"
         };
         console.log(formData)
         startLoading()
