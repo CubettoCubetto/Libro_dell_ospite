@@ -7,9 +7,6 @@ var global_choice = false
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username')
 
-// cambiare il nome del titolo
-document.getElementById("TitoloNome").innerHTML=username
-
 // nascondere le domande non volute dai settings
 document.addEventListener('DOMContentLoaded', function() {
 

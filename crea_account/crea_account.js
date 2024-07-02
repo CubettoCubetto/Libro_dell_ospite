@@ -20,17 +20,16 @@ document.getElementById('createAccountForm').addEventListener('submit', function
 
     const formData = new FormData();
     formData.append('formFile', document.getElementById('formFile').files[0]);
-    formData.append('username', document.getElementById('text1').value.trim())
-    formData.append('text2', document.getElementById('text2').value.trim());
+    formData.append('username', document.getElementById('username').value.trim());
     formData.append('password', document.getElementById('password').value.trim());
-    ;
-    formData.append('text3', document.getElementById('text3').value);
+    formData.append('titolo', document.getElementById('titolo').value.trim());  
+    formData.append('messaggio', document.getElementById('messaggio').value);
     formData.append('star1', document.getElementById('star1').value);
     formData.append('star2', document.getElementById('star2').value);
     formData.append('star3', document.getElementById('star3').value);
     formData.append('star4', document.getElementById('star4').value);
     formData.append('star5', document.getElementById('star5').value);
-    formData.append('name', document.getElementById('name').value.trim());
+    formData.append('nome', document.getElementById('nome').value.trim());
     formData.append('providedPassword', document.getElementById('providedPassword').value.trim());
 
     for (const value of formData.values()) {
