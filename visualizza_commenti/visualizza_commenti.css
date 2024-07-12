@@ -1,0 +1,37 @@
+.contenitore-carte{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center the cards vertically */
+    background-image: url("../immagini/sughero.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+
+    border-radius: 20px;
+    border: 15px solid #dcd4b0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.contenitore-carte .card{
+    margin: 20px;
+}
+
+.card-body{
+    text-align: center;
+    background-image: url("../immagini/white-paper-texture.jpg");
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.pin{
+    display: inline;
+}
+.pin img{
+    width: 30px;
+    margin: auto;
+}
+.pin-right{
+    float: right;
+}
+.pin-left{
+    float: left;
+}
