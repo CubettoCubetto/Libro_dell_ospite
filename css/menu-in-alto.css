@@ -10,7 +10,8 @@
 .logo-sopra img {
     border-radius: 80px;
     width: min(40%, 300px);
-    padding: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     display: block;
     margin: 0 auto;
 }

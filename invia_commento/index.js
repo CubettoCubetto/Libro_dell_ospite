@@ -86,7 +86,6 @@ $(document).ready(function() {
                 break;
             }
         }
-        alert(`Selected value: ${selectedValue == "option1"}`);
 
         var formData = {
             'name': global_choice ? $('#name').val(): "anonimo",
@@ -104,7 +103,7 @@ $(document).ready(function() {
             success: function(response) {
                 stopLoading()
                 alert("Messagio inviato, grazie!")
-                $('#response').html('<div class="alert alert-success">Messagio inviato, grazie!</div>');
+                location.reload()
             },
             error: function() {
                 stopLoading()

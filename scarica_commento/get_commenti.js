@@ -15,7 +15,6 @@ function handleLogin(event) {
           break;
       }
   }
-  alert(`Selected value: ${selectedValue == "option1"}`);
 
 
   // Prepare data to be sent
