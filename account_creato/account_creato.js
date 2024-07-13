@@ -1,5 +1,5 @@
 let urlServer = "https://diegopirovano.pythonanywhere.com"
-urlServer = "http://127.0.0.1:8013"
+//urlServer = "http://127.0.0.1:8013"
 
 var global_choice = false
 
@@ -28,7 +28,8 @@ container.appendChild(img);
 // cambiare il nome del titolo
 document.getElementById("titolo").innerHTML="Ciao " + username + ", il tuo account è pronto!"
 document.getElementById("url-invia-commento").innerHTML= '<a target="_blank" href='+ url_to_send_message+'> Puoi inviare un commento a questo link </a>'
-
+document.getElementById("linkVisualizzaCommenti").innerHTML="Se lo hai acconsentito nella pagina 'Scarica i tuoi commenti', chiunque può consultare i commenti " + 
+    " che hai ricevuto <a target='_blank' href='https://cubettocubetto.github.io/Libro_dell_ospite/visualizza_commenti/visualizza_commenti?username="+username+"'>a questo link</a>"
 const qrcode = new QRCode(document.getElementById("qrcode"), {
     text: url_to_send_message,
     width: 256,
