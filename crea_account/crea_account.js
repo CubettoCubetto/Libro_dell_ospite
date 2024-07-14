@@ -28,7 +28,6 @@ document.getElementById('createAccountForm').addEventListener('submit', function
             break;
         }
     }
-    alert(`Selected value: ${selectedValue == "option1"}`);
 
     const formData = new FormData();
     formData.append('formFile', document.getElementById('formFile').files[0]);
