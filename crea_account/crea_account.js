@@ -1,6 +1,13 @@
 let urlServer = "https://diegopirovano.pythonanywhere.com"
 //urlServer = "http://127.0.0.1:8013"
 
+
+//caricare il username della pagina
+const urlParams = new URLSearchParams(window.location.search);
+const modificaAccount = urlParams.get('modificaAccount')
+const username = urlParams.get('username')
+
+
 function startLoading(){
     document.getElementById('loadingDiv').style.display = 'flex'; // Show the loading div
 }
@@ -8,6 +15,37 @@ function stopLoading(){
     document.getElementById('loadingDiv').style.display = 'none'; // don't show the loading div
 }
 
+
+// auto compila con i dati già presenti dell'account nel caso in cui lo sto modoficando e non creando
+document.addEventListener('DOMContentLoaded', function() {
+    if(modificaAccount=="true"){
+        document.getElementById("titolo-principale").innerHTML ="Modifica il tuo account"
+        fetch(urlServer + "/get_params/" + username)
+        .then(response => {
+            if (!response.ok) {
+                alert(response.json)
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            
+            console.log(response.json)
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+            // Iterate through each key-value pair in the data
+            document.getElementById("username").value = username
+            document.getElementById("titolo").value = data[0][1]
+            document.getElementById("messaggio").value = data[1][1]
+            document.getElementById("star1").value = data[2][1]
+            document.getElementById("star2").value = data[3][1]
+            document.getElementById("star3").value = data[4][1]
+            document.getElementById("star4").value = data[5][1]
+            document.getElementById("star5").value = data[6][1]
+            document.getElementById("nome").value = data[7][1]
+            document.getElementById("inlineRadio1").checked = data[8][1]
+        })
+    }
+});
 
 
 document.getElementById('createAccountForm').addEventListener('submit', function(event) {

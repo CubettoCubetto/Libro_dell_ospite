@@ -7,8 +7,13 @@ var global_choice = false
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username')
 
+// url to modify the account
+url_to_modify_account = "https://cubettocubetto.github.io/Libro_dell_ospite/crea_account/crea_account.html?modificaAccount=true&username="+encodeURIComponent(username)
 url_to_send_message = "https://diegopirovano.pythonanywhere.com/sh/"+encodeURIComponent(username);
+url_to_see_message = "https://cubettocubetto.github.io/Libro_dell_ospite/visualizza_commenti/visualizza_commenti?username="+encodeURIComponent(username)
 
+document.getElementsByClassName("link_to_modify_account").href = url_to_modify_account
+document.getElementsByClassName("linkVisualizzaCommenti").href = url_to_see_message
 // aggiungere il logo alla pagina
 // Create a new image element 
 var img = document.createElement('img'); 
@@ -28,8 +33,7 @@ container.appendChild(img);
 // cambiare il nome del titolo
 document.getElementById("titolo").innerHTML="Ciao " + username + ", il tuo account è pronto!"
 document.getElementById("url-invia-commento").innerHTML= '<a target="_blank" href='+ url_to_send_message+'> Puoi inviare un commento a questo link </a>'
-document.getElementById("linkVisualizzaCommenti").innerHTML="Se lo hai acconsentito nella pagina 'Scarica i tuoi commenti', chiunque può consultare i commenti " + 
-    " che hai ricevuto <a target='_blank' href='https://cubettocubetto.github.io/Libro_dell_ospite/visualizza_commenti/visualizza_commenti?username="+username+"'>a questo link</a>"
+
 const qrcode = new QRCode(document.getElementById("qrcode"), {
     text: url_to_send_message,
     width: 256,
