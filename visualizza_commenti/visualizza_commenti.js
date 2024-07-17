@@ -80,16 +80,25 @@ fetch(urlServer + "/get_params/" + username)
             throw new Error('Network response was not ok ' + response.statusText);
         }
         return response.json();
+    }).catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        alert("C'è stato un errore:" + error.message);
     })
     .then(data => {
         params = data;
         return fetch(urlServer + "/visualizza_account/" + username);
+    }).catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        alert("C'è stato un errore:" + error.message);
     })
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         return response.json();
+    }).catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        alert("C'è stato un errore:" + error.message);
     })
     .then(data => {
         if (data.status != "success") {
