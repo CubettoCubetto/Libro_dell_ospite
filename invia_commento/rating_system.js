@@ -18,7 +18,7 @@ radioButtons.forEach(radio => {
     radio.addEventListener('click', function() {
         const value = this.value;
         const name = this.name;
-        if(value == "yes" || value=="no"){
+        if(value == "yes" || value=="no" || value=="option1" || value=="option2"){
             return;
         }
         console.log('Clicked star value:', value, name);
