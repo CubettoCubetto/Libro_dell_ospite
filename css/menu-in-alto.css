@@ -1,10 +1,14 @@
+:root {
+    --background-color: #8fa5cb;
+    --font-color: #2e2e2c;
+}
+
 .logo-sopra{
-    background-color: #0f2453;
+    background-color: var(--background-color);
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    color: white;
-    font-family: 'Brush Script MT', cursive;
+    color: var(--font-color);
 }
 
 .logo-sopra img {
@@ -19,7 +23,6 @@
     margin: 0 auto;
 }
 
-.nome-logo{
-    color: white;
-    font-family: 'Brush Script MT', cursive;
+footer a{
+    color: var(--font-color);
 }
