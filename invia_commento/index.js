@@ -54,13 +54,14 @@ if (!username) {
     fetch(urlServer + "/get_image/" + username)
         .then(response => {
             if (!response.ok) {
-                alert("C'è stato un errore, riaggiornare la pagina. Se l'errore persiste, contattateci")
+                
                 console.log(response)
                 // Check for the specific status code
                 if (response.status === 403) {
                     // Account is disabled, redirect to a new page
                     window.location.href = '../account_disabled/account_disabled.html';
                 } else {
+                    alert("C'è stato un errore, riaggiornare la pagina. Se l'errore persiste, contattateci")
                     throw new Error('Network response was not ok');
                 }
             }
