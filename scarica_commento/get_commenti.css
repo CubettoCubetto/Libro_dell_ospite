@@ -1,8 +1,18 @@
 .logo-sopra{
-    width: 100vw;
     background-color: #0f2453;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: 'Brush Script MT', cursive;
 }
-.logo-sopra img{
-    width: min(40%, 500px);
+
+.logo-sopra img {
+    border-radius: 80px;
+    width: min(40%, 300px);
     padding: 3%;
+    display: block;
+    margin: 0 auto;
+}
+.logo-sopra h1{
+    margin: 0 auto;
 }

@@ -21,14 +21,14 @@ ul {
     display: inline-block;
 }
 
-.logo-sopra{
-    background-color: #0f2453;
-}
+.table-responsive th, .table-responsive td {
+    border-bottom: 1px solid #dee2e6; /* Add bottom border to all cells */
+    height: 60px;
+  }
 
-.logo-sopra img {
-    border-radius: 30px;
-    width: min(40%, 300px);
-    padding: 3%;
-    display: block;
-    margin: 0 auto;
+@media (min-width: 1000px) {
+    .table-responsive td{
+        padding-right: 75px;
+        padding-left: 75px;
+    }
 }

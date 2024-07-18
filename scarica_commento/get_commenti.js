@@ -1,15 +1,27 @@
 let urlServer = "https://diegopirovano.pythonanywhere.com"
 //urlServer = "http://127.0.0.1:8013"
 
+
 function handleLogin(event) {
     
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
+  
+  const radios = document.getElementsByName('inlineRadioOptions');
+  let selectedValue;
+  for (const radio of radios) {
+      if (radio.checked) {
+          selectedValue = radio.value;
+          break;
+      }
+  }
+
 
   // Prepare data to be sent
   const data = {
     username: username,
-    password: password
+    password: password,
+    pubblicaCommenti: selectedValue == "option1"
   };
 
   // Send a POST request using Fetch API

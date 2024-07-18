@@ -5,18 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crea un account!</title>
     <link rel="stylesheet" href="crea_account.css">
+    <link rel="stylesheet" href="../css/menu-in-alto.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container-logo" id="imageLogoContainer">
-        <img src="immagini/Il libro dell'ospite.jpg" class="logo" alt="Logo il libro dell'ospite">
+    <div class="logo-sopra" id="imageLogoContainer">
+        <img src="../immagini/Il libro dell'ospite.jpg" alt="Logo">    
     </div>
+
+    <!-- menù a tendina -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Il libro dell'ospite</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="https://cubettocubetto.github.io/Libro_dell_ospite/index.html">Home</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="https://cubettocubetto.github.io/Libro_dell_ospite/crea_account/crea_account.html">Crea un account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="https://cubettocubetto.github.io/Libro_dell_ospite/specifica_username\specifica_username.html">QR code per la tua pagina</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="https://cubettocubetto.github.io/Libro_dell_ospite/scarica_commento/get_commenti.html">Scarica i tuoi commenti</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="https://cubettocubetto.github.io/Libro_dell_ospite/invia_commento/invia_commento.html?username=World pizza">Invia un commento di prova</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+      <!-- fine menù a tendina-->
+
     <div class="container">
-        <h1 class="titolo-principale">Crea il tuo libro degli ospiti</h1>
+        <h1 class="titolo-principale" id="titolo-principale">Crea il tuo libro degli ospiti</h1>
         <h3>Ecco i parametri che puoi modificare:</h3>
         <img src="immagini/Tutorial.png" class="tutorial">
     </div>
+    
     
     <div class="container">
         <h5 class="tips">Nota bene: se vuoi che nella tua pagina non si visualizzi uno di questi form, basta scrivere "NO"</h5>
@@ -28,49 +61,67 @@
                 <input class="form-control" type="file" id="formFile">
             </div>
             <div class="mb-3">
-                <label for="text1" class="form-label">2. Testo 1 - Titolo (username)</label>
-                <input type="text" class="form-control" id="text1">
+                <label for="text1" class="form-label">Scegli un username</label>
+                <input type="text" class="form-control" id="username" placeholder="Inserisci qui il tuo username">
             </div>
             <div class="mb-3">
-                <label for="text3" class="form-label">3. Testo 3- messaggio principale</label>
-                <input type="text" class="form-control" id="text3">
+                <label for="text2" class="form-label">2. Titolo</label>
+                <input type="text" class="form-control" id="titolo" placeholder="Inserisci qui il titolo della tua pagina">
+            </div>
+            <div class="mb-3">
+                <label for="text3" class="form-label">3. Messaggio principale</label>
+                <input type="text" class="form-control" id="messaggio" placeholder='Esempio "Come ti sei trovato dalla nostra pizzeria?"'>
             </div>
             <div class="mb-3">
                 <label for="star1" class="form-label">4. Titolo stella 1</label>
-                <input type="text" class="form-control" id="star1">
+                <input type="text" class="form-control" id="star1" placeholder="Esempio: 'Disponibilità personale'">
             </div>
             <div class="mb-3">
                 <label for="star2" class="form-label">5. Titolo stella 2</label>
-                <input type="text" class="form-control" id="star2">
+                <input type="text" class="form-control" id="star2" placeholder="Inserisci qui cosa valutano le seconde stelle">
             </div>
             <div class="mb-3">
                 <label for="star3" class="form-label">6. Titolo stella 3</label>
-                <input type="text" class="form-control" id="star3">
+                <input type="text" class="form-control" id="star3" placeholder="Inserisci qui cosa valutano le terze stelle">
             </div>
             <div class="mb-3">
                 <label for="star4" class="form-label">7. Titolo stella 4</label>
-                <input type="text" class="form-control" id="star4">
+                <input type="text" class="form-control" id="star4" placeholder="Inserisci qui cosa valutano le quarte stelle">
             </div>
             <div class="mb-3">
                 <label for="star5" class="form-label">8. Titolo stella 5</label>
-                <input type="text" class="form-control" id="star5">
+                <input type="text" class="form-control" id="star5" placeholder="Inserisci qui cosa valutano le quinte stelle">
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">9. Nome (esempio: 'Inserisci il tuo nome!')</label>
-                <input type="text" class="form-control" id="name">
+                <label for="name" class="form-label">9. Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder='Esempio: "Grazie per inserire il tuo nome!"'>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Scegli una tua password per scaricare i commenti</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" placeholder="Inventati qui una password sicura">
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Conferma password</label>
-                <input type="password" class="form-control" id="confirmPassword">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Riscrivi la tua password qui">
             </div>
             <div class="mb-3">
                 <label for="providedPassword" class="form-label">Password fornita da noi per la creazione dell'account (15 caratteri alfanumerici) <a href="https://cubettocubetto.github.io/Libro_dell_ospite">Clicca qui per maggiori informazioni</a></label>
-                <input type="text" class="form-control" id="providedPassword">
+                <input type="text" class="form-control" id="providedPassword" placeholder="Esempio: XGbXc98r2tMU1zj">
             </div>
+
+             <!-- pubblicare il commento -->
+             <label>Vuoi rendere visibile i tuoi commenti anche agli altri utenti?</label><br>
+             <div class="form-check form-check-inline">
+                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                 <label class="form-check-label" for="inlineRadio1">Sì</label>
+             </div>
+             <div class="form-check form-check-inline">
+                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked>
+                 <label class="form-check-label" for="inlineRadio2">No</label>
+             </div>
+
+            <br>
+            <br>
             <button type="submit" class="btn btn-primary bottone-submit">Crea account</button>
         </form>
         <div id="loadingDiv" class="loading" style="display: none;">
