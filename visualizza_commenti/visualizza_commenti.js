@@ -13,7 +13,13 @@ var container = document.getElementById('imageLogoContainer');
 container.appendChild(img);
 
 
+
 // aggiornare i titoli
+url_to_send_message = "https://diegopirovano.pythonanywhere.com/sh/"+encodeURIComponent(username);
+url_home = "https://cubettocubetto.github.io/Libro_dell_ospite/index.html"
+
+document.getElementById("link_invia_commento").href = url_to_send_message
+document.getElementById("link_home").href = url_home
 document.getElementById('titolo_commenti_ricevuti').innerHTML = ('Commenti per ' + username );
 
 function startLoading() {
