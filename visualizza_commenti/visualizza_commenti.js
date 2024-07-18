@@ -1,16 +1,36 @@
-const urlServer = "https://diegopirovano.pythonanywhere.com";
-// urlServer = "http://127.0.0.1:8013";
+var urlServer = "https://diegopirovano.pythonanywhere.com";
+//urlServer = "http://127.0.0.1:8013";
 
 // Caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
 
 // Create and append image element
-var img = document.createElement('img'); 
-img.src = urlServer + "/get_image/" + username; 
-img.alt = 'Logo';  
-var container = document.getElementById('imageLogoContainer'); 
-container.appendChild(img);
+var img = document.createElement('img');
+img.alt = 'Logo';
+var container = document.getElementById('imageLogoContainer');
+
+fetch(urlServer + "/get_image/" + username)
+    .then(response => {
+        if (!response.ok) {
+            // Check for the specific status code
+            if (response.status === 403) {
+                // Account is disabled, redirect to a new page
+                window.location.href = '../account_disabled/account_disabled.html';
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        var url = URL.createObjectURL(blob);
+        img.src = url;
+        container.appendChild(img);
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
 
 
 
@@ -87,14 +107,14 @@ fetch(urlServer + "/get_params/" + username)
         }
         return response.json();
     }).catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('Errore:', error);
         alert("C'è stato un errore:" + error.message);
     })
     .then(data => {
         params = data;
         return fetch(urlServer + "/visualizza_account/" + username);
     }).catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('Errore:', error);
         alert("C'è stato un errore:" + error.message);
     })
     .then(response => {
@@ -103,7 +123,7 @@ fetch(urlServer + "/get_params/" + username)
         }
         return response.json();
     }).catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('Errore:', error);
         alert("C'è stato un errore:" + error.message);
     })
     .then(data => {
@@ -119,6 +139,6 @@ fetch(urlServer + "/get_params/" + username)
         stopLoading();
     })
     .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('Errore:', error);
         stopLoading();
     });

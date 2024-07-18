@@ -46,12 +46,32 @@ if (!username) {
             });
     });
 
-    // Add the logo to the page
-    const img = document.createElement('img');
-    img.src = urlServer + "/get_image/" + username;
+    // Create and append image element
+    var img = document.createElement('img');
     img.alt = 'Logo';
-    const container = document.getElementById('imageLogoContainer');
-    container.appendChild(img);
+    var container = document.getElementById('imageLogoContainer');
+
+    fetch(urlServer + "/get_image/" + username)
+        .then(response => {
+            if (!response.ok) {
+                // Check for the specific status code
+                if (response.status === 403) {
+                    // Account is disabled, redirect to a new page
+                    window.location.href = '../account_disabled/account_disabled.html';
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            var url = URL.createObjectURL(blob);
+            img.src = url;
+            container.appendChild(img);
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
 
     function startLoading() {
         document.getElementById('loadingDiv').style.display = 'flex'; // Show the loading div

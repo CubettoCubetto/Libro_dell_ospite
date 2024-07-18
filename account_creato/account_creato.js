@@ -14,21 +14,33 @@ url_to_see_message = "https://cubettocubetto.github.io/Libro_dell_ospite/visuali
 
 document.getElementById("link_to_modify_account1").setAttribute("href", url_to_modify_account)
 document.getElementById("linkVisualizzaCommenti").href = url_to_see_message
-// aggiungere il logo alla pagina
-// Create a new image element 
-var img = document.createElement('img'); 
- 
-// Set the source (src) attribute of the image 
-img.src = urlServer+"/get_image/"+encodeURIComponent(username);; 
 
-// Set any additional attributes like alt text, width, height, etc. 
-img.alt = 'Logo';  
+// Create and append image element
+var img = document.createElement('img');
+img.alt = 'Logo';
+var container = document.getElementById('imageLogoContainer');
 
-// Get a reference to the container where you want to insert the image 
-var container = document.getElementById('imageLogoContainer'); 
-
-// Append the image element to the container 
-container.appendChild(img); 
+fetch(urlServer + "/get_image/" + username)
+    .then(response => {
+        if (!response.ok) {
+            // Check for the specific status code
+            if (response.status === 403) {
+                // Account is disabled, redirect to a new page
+                window.location.href = '../account_disabled/account_disabled.html';
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        var url = URL.createObjectURL(blob);
+        img.src = url;
+        container.appendChild(img);
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
 
 // cambiare il nome del titolo
 document.getElementById("titolo").innerHTML="Ciao " + username + ", il tuo account è pronto!"
