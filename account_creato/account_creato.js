@@ -5,7 +5,7 @@ var global_choice = false
 
 //caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username')
+const username = urlParams.get('username').toLowerCase();
 
 // url to modify the account
 url_to_modify_account = "https://cubettocubetto.github.io/Libro_dell_ospite/crea_account/crea_account.html?modificaAccount=true&username="+encodeURIComponent(username)

@@ -5,7 +5,7 @@ var global_choice = false;
 
 // Load the username from the page
 const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username');
+const username = urlParams.get('username').toLowerCase();
 
 if (!username) {
     alert('Username non specificato nel URL');
