@@ -3,7 +3,10 @@ var urlServer = "https://diegopirovano.pythonanywhere.com";
 
 // Caricare il username della pagina
 const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username').toLowerCase();
+let username = urlParams.get('username');
+if (username) {
+    username = username.toLowerCase();
+}
 
 // Create and append image element
 var img = document.createElement('img');
