@@ -15,8 +15,9 @@ url_to_modify_account = "https://cubettocubetto.github.io/Libro_dell_ospite/crea
 url_to_send_message = "https://diegopirovano.pythonanywhere.com/sh/"+encodeURIComponent(username);
 url_to_see_message = "https://cubettocubetto.github.io/Libro_dell_ospite/visualizza_commenti/visualizza_commenti?username="+encodeURIComponent(username)
 
-document.getElementById("link_to_modify_account1").setAttribute("href", url_to_modify_account)
-document.getElementById("linkVisualizzaCommenti").href = url_to_see_message
+document.getElementById("link_to_modify_account1").setAttribute("href", url_to_modify_account);
+document.getElementById("linkVisualizzaCommenti1").href = url_to_see_message;
+document.getElementById("linkVisualizzaCommenti2").href = url_to_see_message;
 
 // Create and append image element
 var img = document.createElement('img');
