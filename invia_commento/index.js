@@ -7,6 +7,21 @@ var global_choice = false;
 const urlParams = new URLSearchParams(window.location.search);
 let username = urlParams.get('username');
 
+
+
+function ratingNotSelected(i){
+    if(!document.getElementById("form"+(i+2)).classList.contains("hide")) //+2 because the counting of stars star from 3
+    {
+        alert("Perfavore inserisci una valutazione in ogni campo");
+        document.getElementById("pleaseInsertARating"+i).classList.remove("hide");
+        return true; //quindi fa return
+    }
+    return false;
+}
+function ratingSelected(i){
+    document.getElementById("pleaseInsertARating"+i).classList.add("hide")
+}
+
 if (username) {
     username = username.toLowerCase();
 }
@@ -33,14 +48,12 @@ if (!username) {
                     if (element) {
                         const child = element.querySelector('.titolo');
                         if (value === 'NO') {
-                            element.style.display = 'none';
+                            element.classList.add("hide");
                         } else if (child) {
                             child.innerHTML = value;
                         } else {
                             console.error(`Child with class 'titolo' inside element with id ${elementId} not found`);
                         }
-                    } else {
-                        console.error(`Element with id ${elementId} not found`);
                     }
                 });
             })
@@ -91,6 +104,19 @@ if (!username) {
     $(document).ready(function() {
         $('#messageForm').on('submit', function(event) {
             event.preventDefault();
+            
+            // Check if one of the star has not selected
+            for(var i = 0; i < 5; i++){
+                if(valuesSelected[i]==0){
+                    if(ratingNotSelected(i+1)){
+                        return;
+                    } //+1 because the loop starts from 0
+                    
+                }
+                else{
+                    ratingSelected(i+1);
+                }
+            }
 
             const message = $('#message').val();
             const radios = document.getElementsByName('inlineRadioOptions');
@@ -105,7 +131,7 @@ if (!username) {
             const formData = {
                 'name': global_choice ? $('#name').val() : "anonimo",
                 'message': message,
-                'ratings': valuesSelected, // Ensure `valuesSelected` is defined in the scope
+                'ratings': valuesSelected, 
                 'public': selectedValue === "option1"
             };
 
