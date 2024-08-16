@@ -1,6 +1,3 @@
-.hide{
-    display: none;
-}
 
 
 /* stars rating */
@@ -29,6 +26,9 @@
     margin-right: 10px;
 }
 
+.pleaseInsertARating{
+    color: red;
+}
 
 .loading {
     position: fixed;
@@ -43,3 +43,6 @@
     z-index: 9999;
 }
 
+.hide{
+    display: none;
+}

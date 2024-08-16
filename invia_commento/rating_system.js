@@ -7,7 +7,7 @@ let labels = [
     document.querySelectorAll('.rating5 label')  // Array of labels for row 5
 ];
 
-let valuesSelected = [1,1,1,1,1]
+let valuesSelected = [0,0,0,0,0]
 console.log('Initial Labels:', labels);
 
 // Get all radio buttons

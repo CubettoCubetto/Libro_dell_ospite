@@ -4,7 +4,11 @@ let urlServer = "https://diegopirovano.pythonanywhere.com";
 // Load the username from the page
 const urlParams = new URLSearchParams(window.location.search);
 const modificaAccount = urlParams.get('modificaAccount');
-const username = urlParams.get('username');
+let username = urlParams.get('username');
+
+if (username) {
+    username = username.toLowerCase();
+}
 
 function startLoading(){
     document.getElementById('loadingDiv').style.display = 'flex'; // Show the loading div
